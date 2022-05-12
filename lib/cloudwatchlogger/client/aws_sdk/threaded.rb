@@ -93,7 +93,7 @@ module CloudWatchLogger
         end
 
         def connect!(opts = {})
-          args = { http_open_timeout: opts[:open_timeout], http_read_timeout: opts[:read_timeout] }
+          args = { http_open_timeout: opts[:open_timeout], http_read_timeout: opts[:read_timeout], logger: nil }
           args[:region] = @opts[:region] if @opts[:region]
           args.merge( @credentials.key?(:access_key_id) ? { access_key_id: @credentials[:access_key_id], secret_access_key: @credentials[:secret_access_key] } : {} )
 
